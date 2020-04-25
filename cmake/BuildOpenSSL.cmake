@@ -56,7 +56,7 @@ else()
 
     if (OPENSSL_NO_OPTS)
         message(INFO "Disabling OpenSSL optimizations")
-        set(CONFIGURE_OPENSSL_MODULES no-asm no-tests no-hw no-engine no-threads enable-camellia enable-seed no-cast no-engine)
+        set(CONFIGURE_OPENSSL_MODULES no-asm no-tests no-hw no-engine no-threads no-engine)
     endif()
 
     if (WIN32 AND NOT CROSS)
@@ -111,7 +111,7 @@ else()
     set(BUILD_ENV_TOOL ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/building_env.py ${OS} ${MSYS_BASH} ${MINGW_MAKE})
 
     # disable everything we dont need
-    set(CONFIGURE_OPENSSL_MODULES ${CONFIGURE_OPENSSL_MODULES} no-cast no-md2 no-md4 no-mdc2 no-rc4 no-rc5 no-engine no-idea no-mdc2 no-rc5 no-ssl3 no-heartbeats no-gost no-deprecated no-capieng no-comp no-dtls no-psk no-srp no-dso no-dsa no-rc2 no-des)
+    set(CONFIGURE_OPENSSL_MODULES ${CONFIGURE_OPENSSL_MODULES} enable-camellia enable-seed no-cast no-md2 no-md4 no-mdc2 no-rc4 no-rc5 no-engine no-idea no-mdc2 no-rc5 no-ssl3 no-heartbeats no-gost no-deprecated no-capieng no-comp no-dtls no-psk no-srp no-dso no-dsa no-rc2 no-des)
     #set(CONFIGURE_OPENSSL_MODULES ${CONFIGURE_OPENSSL_MODULES} no-cast no-md2 no-md4 no-mdc2 no-rc4 no-rc5 no-engine no-idea no-mdc2 no-rc5 no-camellia no-ssl3 no-heartbeats no-gost no-deprecated no-capieng no-comp no-dtls no-psk no-srp no-dso no-dsa no-rc2 no-des)
 
     # additional configure script parameters
